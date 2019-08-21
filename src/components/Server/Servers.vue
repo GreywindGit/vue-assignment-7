@@ -22,12 +22,6 @@
                 ]
             }
         },
-        created() {
-            eventBus.$on('resetStatus', (server) => {
-                const serverIndex = this.servers.findIndex(item => item.id === server.id);
-                this.servers[serverIndex] = server;    
-            })
-        },
         components: {
             appServer: Server
         }

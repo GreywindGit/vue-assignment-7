@@ -23,7 +23,6 @@ export default {
   methods: {
       resetStatus() {
           this.server.status = 'Normal';
-          eventBus.$on('resetStatus', this.server);
       }
   }
 };
