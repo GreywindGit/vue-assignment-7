@@ -8,6 +8,7 @@
 
 <script>
     import Server from './Server.vue';
+    import { eventBus } from '../../main';
 
     export default {
         data: function() {
@@ -20,6 +21,12 @@
                     { id: 5, status: 'Normal' }
                 ]
             }
+        },
+        created() {
+            eventBus.$on('resetStatus', (server) => {
+                const serverIndex = this.servers.findIndex(item => item.id === server.id);
+                this.servers[serverIndex] = server;    
+            })
         },
         components: {
             appServer: Server
